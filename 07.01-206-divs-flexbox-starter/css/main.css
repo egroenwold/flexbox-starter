@@ -99,39 +99,50 @@ textarea {
 html {
   background-color: rgb(255, 196, 0);
   height: 100%;
+  width: 100%;
 }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  padding: 2em;
+  padding: 0em 2em;
   font-size: 1.25em;
-  height: 100%;
-}
-
-.wrapper {
-  /*add display:flex and set justify-content to space-between*/
-  display: flex;
-  justify-content: space-between;
-  font-weight: 400;
-}
-
-.div-1, .div-2, .div-3 {
-  /*give the divs a width of 30%, add display:flex, set justify-content and align-items to center*/
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 30%;
-  color: #fff;
-  line-height: 1.5em;
-  font-size: 1em;
-  height: 100px;
-  padding: 5%;
 }
 
-.div-1, .div-2 {
-    border-right-style: dotted;
-    border-right-color: #ffed9fe0;
-    border-right-width: 2px;
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    color: #fff;
+    max-width: 1200px;
+}
+
+header, footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid #ffed9fe0 1px;
+}
+
+.flex-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    line-height: 1.5em;
+    font-size: 1em;
+    height: auto;
+}
+
+#div-1, #div-2 {
+ border-bottom: dashed #ffed9fe0 2px;
 }
 
 a {
@@ -139,6 +150,17 @@ a {
     color: rgb(190, 31, 3);
 }
 
+h1 { font-size: 2em; }
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+footer { 
+    border-top: solid #ffed9fe0 1px;
+    font-size: 0.85em; 
+}
 
 
 /* ==========================================================================
@@ -220,6 +242,23 @@ a {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
+
+@media (min-width: 1200px) {
+    .flex-items {
+      flex-basis: 30%;
+    }
+
+    #div-1, #div-2 {
+        border-bottom: none;
+    }
+
+    #div-2 p {
+        border-right: dotted #ffed9fe0 2px;
+        border-left: dotted #ffed9fe0 2px;
+        padding: 0 40px;
+    }
+}
+
 
 @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
